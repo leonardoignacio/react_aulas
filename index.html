@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutoriais React.js</title>
+  <style>
+    /* ---------- RESET ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ffa33a, #007acc);
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    /* ---------- MENU ---------- */
+    nav {
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 0.5rem;
+      border-bottom: 2px solid #e1e1e1;
+    }
+
+    nav a {
+      color: #007acc;
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -3px;
+      left: 0;
+      background: #007acc;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #004f80;
+    }
+
+    /* ---------- CONTEÚDO ---------- */
+    main {
+      flex: 1;
+      padding: 2rem;
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #fff;
+      border-top: 1px solid #ddd;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📘 Tutoriais de React.js</h1>
+  </header>
+
+  <nav id="menu">
+    <a href="./1-fundamentos.html">Fundamentos</a>
+    <a href="./2-variaveisRotasSPA.html">Variáveis, Rotas e SPA</a>
+    <a href="./3-estilizacaoCSS.html">Estilização com CSS</a>
+    <a href="./4-hooks.html">Hooks</a>
+    <a href="./5-APIeAJAX.html">API e AJAX</a>
+  </nav>
+
+  <main id="conteudo">
+    <h2>Bem-vindo!</h2>
+    <p>Selecione um dos tutoriais acima para começar a aprender React.js de forma prática 🚀</p>
+  </main>
+
+  <footer>
+    Desenvolvido com 💙 por <strong>Seu Nome</strong> | 2025
+  </footer>
+
+  <script>
+    // ---------- JAVASCRIPT PERSONALIZADO ----------
+
+    // Marca o link ativo de acordo com a página atual
+    const links = document.querySelectorAll('#menu a');
+    const currentPage = window.location.pathname.split('/').pop();
+
+    links.forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+
+      // Adiciona um efeito de clique
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
